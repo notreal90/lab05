@@ -12,10 +12,14 @@
 #include <iostream>
 #include <string>
 
+#define MAX 100
+
 using namespace std;
 using std::string;
 
-
+typedef int BOOL;
+typedef string WORD;
+typedef WORD DICT[MAX];
 
 BOOL InsertWord(DICT dict, WORD word){
 /* 
@@ -23,8 +27,10 @@ BOOL InsertWord(DICT dict, WORD word){
 */
 	//Assumes the word has already been tested for existence.
 	//Will return 0 if the dictonary is full.
+	BOOL FullDictionary(DICT dict);
+	
 	int count = 0;
-	int size = dict.length();
+	int size = sizeof(dict)/sizeof(dict[0]);
 	int compared = 0;
 	
 	
@@ -56,7 +62,7 @@ void DumpDictionary(DICT dict, int count[]) {
 	//TODO: Dictonary sort function goes here.
 	
 	size = sizeof(dict)/sizeof(dict[0]);
-	cout <'\n'; //New line just to be clean and safe.
+	cout << '\n'; //New line just to be clean and safe.
 	cout << "Dictonary dump:" << '\n';
 	while(c < size){
 		cout << count[c];
@@ -76,7 +82,7 @@ WORD GetNextWord(void){
    returns WORD or 0 if no more words in input stream
 */
 	char ch;
-	WORD out;
+	string out;
 	
 	out = "";
 	
@@ -84,7 +90,7 @@ WORD GetNextWord(void){
 		ch = cin.get();
 		ch = tolower(ch);
 		if (isalpha(ch)){
-			out << ch;
+			out = out + string(1, ch);
 			
 			
 		}else{
@@ -141,7 +147,7 @@ int LocateWord(DICT dict, WORD word) {
 	
 }
 
-void sortDictonary(DICT dict,){
+void sortDictonary(DICT dict){
 	/*
 	 * Sorts the dictonary.
 	 */

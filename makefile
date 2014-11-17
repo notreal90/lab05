@@ -7,10 +7,10 @@ dict: main.o dictonary.o
 	g++ main.o  dictonary.o -o dict
 	
 main.o: dictonary.o
-	G++ -c main.cpp
+	g++ -c main.cpp
 
 dictonary.o:
-	g++ -c dictonary.o
+	g++ -c dictonary.cpp
 	
 clean:
 	rm *.o dict
