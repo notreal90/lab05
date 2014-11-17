@@ -1,0 +1,9 @@
+For this assigment, you will re-write your C++ solution to Assignment #1 so that it uses a different data structure (array of strings!! ) for the dictionary.
+
+First, the requirements for this assignment are the same as they were for assignment #1 : your program must read text, extract words, and place them in a dictionary. It must also keep track of the number of times that the words show up in the text. Finally, it must display the dictionary and the number of occurrances.
+
+However, here is where things differ: your new solution must be written using the template given below. You will have to provide code for the 5 functions identified in the template. The data structures that you must use are given in the typedefs. For example, your dictionary's data structure is defined by the type DICT. Also, the dictionary must be sorted before it is displayed.
+
+All of your functions MUST be placed in a file called dictionary.cpp. Your main program and definitions will be put in a file called main.cpp. You MUST provide me with a makefile that will build the executable and clean the directory.
+
+FINAL NOTE : DOCUMENT!!! I expect your program to follow the guidelines that I spelt out in the lab as well as in the style document on the website. Penalties for NOT following the guidelines will be equal to half the value of this assignment. You have been warned!! 

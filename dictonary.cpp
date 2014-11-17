@@ -28,25 +28,35 @@ BOOL InsertWord(DICT dict, WORD word){
 	//Assumes the word has already been tested for existence.
 	//Will return 0 if the dictonary is full.
 	BOOL FullDictionary(DICT dict);
+	int LocateWord(DICT dict, WORD word);
 	
 	int count = 0;
-	int size = sizeof(dict)/sizeof(dict[0]);
+	int size = MAX;
 	int compared = 0;
+	int location = 0;  //Will store location of word to be entered.
 	
 	
 	if(FullDictionary(dict)){
 		return 0;
 	}
+	location = LocateWord(dict, "");
+	dict[location] = word;
+	return 1;
+	
+	
+	//Well the following didn't work for some reason.  Trying something else.
+	/*
 	while(count < size){
 		compared = dict[count].compare("");
 		if (compared == 0){
 			dict[count] = word;
-			size = count; //should prevent the loop from continuing
+			return 1;
 		}
 		count++;
 	}
 	
-	return 1;
+	return 0;
+	*/
 
 }
 
@@ -61,7 +71,7 @@ void DumpDictionary(DICT dict, int count[]) {
 	
 	//TODO: Dictonary sort function goes here.
 	
-	size = sizeof(dict)/sizeof(dict[0]);
+	size = MAX;
 	cout << '\n'; //New line just to be clean and safe.
 	cout << "Dictonary dump:" << '\n';
 	while(c < size){
@@ -101,7 +111,7 @@ WORD GetNextWord(void){
 		
 		
 	}
-	return 0;
+	return "0";
 
 }
 
@@ -109,15 +119,27 @@ BOOL FullDictionary(DICT dict) {
 /* 
    if dictionary is full, return 1 else 0 
  */
-	int size = 0;//Will store the size of the dictionary.
-	size = sizeof(dict)/sizeof(dict[0]);
+	
+	int size = MAX;
 	int compared;
-	compared = dict[size - 1].compare("");
-	if (compared == 0){
+	int location = 0;
+	
+	int LocateWord(DICT dict, WORD word);
+	
+	location = LocateWord(dict, "");
+	if(location == (size - 1)){
 		return 1;
 	}
 	return 0;
 	
+	//This part didn't work for somereason, trying something else.
+	/*
+	compared = dict[size - 1].compare("");
+	if (compared == 0){
+		return 0;
+	}
+	return 1;
+	*/
 	
 }
 
@@ -134,7 +156,7 @@ int LocateWord(DICT dict, WORD word) {
 	int size = 0; //will store the size of the array.
 	int compared = 0;  //will store the result of comparison.
 	
-	size = sizeof(dict)/sizeof(dict[0]); //SHOULD return the size of the array.
+	size = MAX;
 	while (count < size){
 		compared = word.compare(dict[count]);
 		if (compared == 0){

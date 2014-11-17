@@ -46,7 +46,7 @@ int main (void) {
 
     while (1) {
        word = GetNextWord();
-       if ( 0 == word )  {
+       if ( word.compare("0") == 0 )  {
            DumpDictionary(dictionary,count);
            break;
        }
@@ -54,6 +54,7 @@ int main (void) {
            count[pos]++;
        else
            if (!InsertWord(dictionary,word)) cout << "dictionary full " << word << " cannot be added\n";
+           else count[LocateWord(dictionary, word)] = 1;
     }
     return 0;
 }
