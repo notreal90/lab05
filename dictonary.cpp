@@ -1,4 +1,9 @@
-
+/*
+ * Student ID: 4903077
+ * Name: Matthew McAlpine
+ * CS2010 Fall 2014
+ * Lab Assignment 5
+ */
 
 
 #include <stdio.h>
@@ -70,6 +75,28 @@ WORD GetNextWord(void){
    will retrieve next word in input stream. Word is defined just as in assignment #1 
    returns WORD or 0 if no more words in input stream
 */
+	char ch;
+	WORD out;
+	
+	out = "";
+	
+	while(cin.good()){
+		ch = cin.get();
+		ch = tolower(ch);
+		if (isalpha(ch)){
+			out << ch;
+			
+			
+		}else{
+			if(out != ""){
+				return out;
+			}
+		}
+		
+		
+	}
+	return 0;
+
 }
 
 BOOL FullDictionary(DICT dict) {
@@ -122,7 +149,7 @@ void sortDictonary(DICT dict,){
 	int pos2 = 0;
 	int size = 0;
 	
-	size = sizeof(*dict)/sizeof(*dict[0]);
+	size = sizeof(dict)/sizeof(dict[0]);
 	//TODO: write actual sort.
 	
 }

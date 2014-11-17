@@ -1,3 +1,11 @@
+/*
+ * Student ID: 4903077
+ * Name: Matthew McAlpine
+ * CS2010 Fall 2014
+ * Lab Assignment 5
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
