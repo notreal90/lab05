@@ -14,6 +14,7 @@
 
 #define MAX 100
 
+
 using namespace std;
 using std::string;
 
@@ -64,17 +65,30 @@ void DumpDictionary(DICT dict, int count[]) {
 /* 
   will sort the dictionary, and display the contents
 */
-	//TODO: touch up formating.
+	#define NUMDIG 3
+	//Howmany digits to expect.
 	
 	int size = 0;
 	int c = 0; //iterator for loop below.  Would've named it count, but that's used already.
+	int digit = 0;
+	int x = 0;
 	
-	//TODO: Dictonary sort function goes here.
+	void sortDictonary(DICT dict, int num[]);
+	int numDigits(int tested);
+	
+	sortDictonary(dict, count);
 	
 	size = MAX;
 	cout << '\n'; //New line just to be clean and safe.
 	cout << "Dictonary dump:" << '\n';
 	while(c < size){
+		digit = numDigits(count[c]);
+		x = 0;
+		while(x < (NUMDIG - digit)){
+			cout << ' ';
+			x++;
+		}
+		
 		cout << count[c];
 		cout << ": ";
 		cout << dict[c];
@@ -99,7 +113,7 @@ WORD GetNextWord(void){
 	while(cin.good()){
 		ch = cin.get();
 		ch = tolower(ch);
-		if (isalpha(ch)){
+		if ((isalpha(ch)) || (ch == '\'')){
 			out = out + string(1, ch);
 			
 			
@@ -127,7 +141,10 @@ BOOL FullDictionary(DICT dict) {
 	int LocateWord(DICT dict, WORD word);
 	
 	location = LocateWord(dict, "");
-	if(location == (size - 1)){
+	if(location == (size)){
+		return 1;
+	}
+	if (location < 0) {
 		return 1;
 	}
 	return 0;
@@ -169,15 +186,44 @@ int LocateWord(DICT dict, WORD word) {
 	
 }
 
-void sortDictonary(DICT dict){
+void sortDictonary(DICT dict, int num[]){
 	/*
 	 * Sorts the dictonary.
 	 */
-	int pos1 = 0;
-	int pos2 = 0;
-	int size = 0;
+	int pos1 = 0; //sorted word
+	int pos2 = 0; //sorting word.
+	int size = MAX;
+	int storage;
 	
-	size = sizeof(dict)/sizeof(dict[0]);
-	//TODO: write actual sort.
+	
+	while ((pos1 < size)){
+		pos2 = pos1 + 1;
+		while(pos2 < size){
+			if (dict[pos1] > dict[pos2]){
+				dict[pos1].swap(dict[pos2]);
+				storage = num[pos2];
+				num[pos2] = num[pos1];
+				num[pos1] = storage;
+			}
+			pos2++;
+		}
+		pos1++;
+		
+	}
+}
+
+int numDigits(int tested){
+	//takes a int, tells teh number of digets.
+	//Only works on positive numbers currently.
+	int number = 0;
+	while (tested > 0){
+		tested = tested / 10;
+		number++;
+		
+		
+	}
+	return number;
+	
+	
 	
 }
