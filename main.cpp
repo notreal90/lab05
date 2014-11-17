@@ -32,37 +32,6 @@ WORD word;        //
 int count[MAX];   //tracks word frequencies
 
 
-BOOL InsertWord(DICT dict, WORD word)
-{
-/* 
-  adds word to dictionary , if word can't be added returns 0 else returns 1
-*/
-}
-
-void DumpDictionary(DICT dict, int count[]) {
-/* 
-  will sort the dictionary, and display the contents
-*/
-}
-
-WORD GetNextWord(void){
-/* 
-   will retrieve next word in input stream. Word is defined just as in assignment #1 
-   returns WORD or 0 if no more words in input stream
-*/
-}
-
-BOOL FullDictionary(DICT dict) {
-/* 
-   if dictionary is full, return 1 else 0 
- */
-}
-
-int LocateWord(DICT dict, WORD word) {
-/*
-   will determine if dictionary contains word. if found, returns position else returns value < 0
-*/
-}
 
 int main (void) {
     int pos;
