@@ -5,6 +5,11 @@
  * Lab Assignment 5
  */
 
+/*
+ * This program will take a textfile and count how many times a word shows up.
+ * It is not case sensitive.  And counts apostrophies as a valid letter.
+ */
+
 
 #include <stdio.h>
 #include <stdlib.h>
