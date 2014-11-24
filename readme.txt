@@ -8,3 +8,4 @@ The program builds as "dict"
 
 I know it wasn't required in the assignment, but the fact that words like you're would return as two words ("you" and "re") bothered me so I set it to treat the appostrophe as a valid character.
 
+Whoopse, sorry for that bad submit, I acidently killed my dictonary.cpp file with tar.  Thank god for git.
